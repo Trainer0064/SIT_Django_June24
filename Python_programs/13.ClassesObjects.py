@@ -27,15 +27,19 @@ class College:
         print(f"College Name: {self.college_name}")
         print(f"Address: {self.address}")
         print(f"City: {College.city}")
+    
+    def __str__(self):
+        return f"object is created for {self.college_name}"
 
 obj = College("Silicon University","Bhubaneswar")
 
 print(obj,type(obj))
-print(obj.college_name)
-print(obj.address)
-print(College.city)
+# print(obj.college_name)
+# print(obj.address)
+# print(College.city)
 
-obj.display_info()
+# obj.display_info()
 
 obj2 = College("KIIT","Kolkata")
-obj2.display_info()
+print(obj2)
+# obj2.display_info()

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%block title%} Student Details{%endblock%}
+{% block body %}
+    {% include "navbar.html" %}
+    <h2>You are in DetailPage</h2>
+
+    <table border="1px solid black">
+        <tr>
+            <th>Sl No.</th>
+            <th>Roll No.</th>
+            <th>Name</th>
+        </tr>
+        {% for student in data %}
+        <tr>
+            <td>{{student.Sl_no}}</td>
+            {% if student.Roll_no != None %}
+            <td>{{student.Roll_no}}</td>
+            {%else%}
+            <td>N/A</td>
+            {% endif %}
+            <td>{{student.Name}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
-
+from .student_data import student_detail
 # Create your views here.
 
 def first_api(request):
@@ -66,3 +66,6 @@ def portfolio_projects(request):
 
 def portfolio_skills(request):
     return render(request, 'skills.html')
+
+def portfolio_details(request):
+    return render(request, 'details.html',context={"data":student_detail})
