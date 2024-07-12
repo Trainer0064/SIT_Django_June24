@@ -1,0 +1,27 @@
+python --version -> check the version of python if installed
+pip freeze -> Lists all the packages that are installed in the current environment
+pip install <package_name> -> install the specified package in the current environment
+pip uninstall <package_name> -> uninstalls the specified package from the current environment
+
+virtualenv <env_name> -> create a virtual environment
+
+NOTE:
+if command like pip,virtualenv does not work directly you can insert "python -m" at the beginning of the command
+eg. python -m venv <env_name> -> to create a virtual environment
+
+.\<env_name>\scripts\activate -> Activate environment in windows
+source <env_name>/bin/activate -> Activate environment in MAC OS/Linux
+
+DJANGO COMMANDS:
+
+django-admin startproject <project_name> -> creates a project
+django-admin startproject core . -> create project using industrial conventions for hierarchy
+
+python manage.py runserver -> Run the Development Server
+python manage.py makemigrations -> Creates migration files for all the apps
+python manage.py makemigrations <app_name> -> Create migration files for the specified apps
+python manage.py migrate -> Apply the migrations and reflect the changes in DB
+python manage.py startapp <app_name> -> Creates an app with the given name
+
+python manage.py createsuperuser -> Create a new superuser with adminstrative access
+python manage.py shell -> to into the shell for interacting with the projects Database

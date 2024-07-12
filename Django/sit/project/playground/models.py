@@ -11,3 +11,49 @@ class AllFieldsModel(models.Model):
     url_field = models.URLField()
     date_field = models.DateField()
     datetime_field = models.DateTimeField(auto_now=True)
+
+class DepartmentModel(models.Model):
+    title = models.CharField(max_length=50,null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True,editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+class RegistrationModel(models.Model):
+    regd_no = models.CharField(max_length=20,null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True,editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.regd_no
+
+class EducationModel(models.Model):
+    title = models.CharField(max_length=50,null=True, blank=True)
+    batch_start = models.IntegerField(null=True, blank=True)
+    batch_end = models.IntegerField(null=True, blank=True)
+    percentile = models.DecimalField(max_digits=5,decimal_places=2,null=True,blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True,editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.title} -> {self.percentile}"
+
+class StudentModel(models.Model):
+    name = models.CharField(max_length=50,null=True, blank=True)
+    dept = models.ForeignKey(DepartmentModel,on_delete=models.SET_NULL, related_name="StudentModel_dept",null=True)
+    regd = models.OneToOneField(RegistrationModel,on_delete=models.CASCADE,related_name="StudentModel_regd",null=True)
+    education = models.ManyToManyField(EducationModel,related_name="StudentModel_education")
+    
+    created_at = models.DateTimeField(auto_now_add=True,editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        try:
+            return f"{self.name} -> {self.dept.title}"
+        except:
+            return f"{self.name} -> NULL"
