@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Update Course{% endblock %}
+
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Course Title:</label>
+    <input type="text" id="title" name="title" value="{{data.title}}" required>
+
+    <label for="description">Course Description:</label>
+    <input id="description" name="description" value="{{data.description}}" required></textarea>
+
+    <input type="submit" value="Update">
+    <input type="reset" value="Reset">
+</form>
+{% endblock %}

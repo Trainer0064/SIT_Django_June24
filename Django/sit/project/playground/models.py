@@ -20,7 +20,10 @@ class DepartmentModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title
+        try:
+            return self.title
+        except:
+            return "NULL"
 
 class RegistrationModel(models.Model):
     regd_no = models.CharField(max_length=20,null=True, blank=True)

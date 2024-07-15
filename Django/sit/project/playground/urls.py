@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import first_api,json_api,dynamic_api,student_api,test_html,portfolio_home,portfolio_about,portfolio_projects,portfolio_skills,portfolio_details
 
+from .views import read_all_view,read_view,create_view,update_view,delete_view
+
 urlpatterns = [
     path('first-api/',first_api,name='first-api'),
     path('json-api/',json_api,name='json-api'),
@@ -14,4 +16,12 @@ urlpatterns = [
     path('portfolio-projects/',portfolio_projects,name="portfolio_projects"),  
     path('portfolio-skills/',portfolio_skills,name="portfolio_skills"),
     path('portfolio-details/',portfolio_details,name = "portfolio_details") ,
+
+    #Urls for CRUD using Function Based Views
+    path('read-all/', read_all_view, name="read_all"),
+    path('read/<id>/',read_view, name="read"),
+    path('create/',create_view,name="create"),
+    path('update/<id>/',update_view, name="update"),
+    path('delete/<id>/',delete_view, name="delete"),
+
 ]

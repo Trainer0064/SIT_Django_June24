@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Update Objects{%endblock%}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="Title" name="title" value="{{data.title}}"><br/>
+    <input type="text" placeholder="Description" name="description" value="{{data.description}}"><br/>
+    <input type="submit" value="Update">
+</form>
+<a href="{%url 'read_all' %}">cancel</a>
+{% endblock %}

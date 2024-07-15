@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse
 from .student_data import student_detail
+
+from .models import DepartmentModel,StudentModel,EducationModel
 # Create your views here.
 
 def first_api(request):
@@ -69,3 +71,33 @@ def portfolio_skills(request):
 
 def portfolio_details(request):
     return render(request, 'details.html',context={"data":student_detail})
+
+def read_all_view(request):
+    data = DepartmentModel.objects.all()
+    return render(request, 'read_all.html',context={"data":data})
+
+def read_view(request,id):
+    data = DepartmentModel.objects.get(id=id)
+    return render(request, 'read.html',context={"data":data})
+
+def create_view(request):
+    if request.method == 'POST':
+        print(request.POST)
+        DepartmentModel.objects.create(title=request.POST.get('title'),description=request.POST.get('description'))
+        return redirect("read_all")
+    return render(request, 'create.html')
+
+def update_view(request,id):
+    data = DepartmentModel.objects.get(id=id)
+    if request.method == 'POST':
+        print(request.POST['title'])
+        data.title = request.POST.get('title')
+        data.description = request.POST.get('description')
+        data.save()
+        return redirect('read',id=id)
+    return render(request, 'update.html',context={"data":data})
+
+
+def delete_view(request,id):
+    DepartmentModel.objects.get(id=id).delete()
+    return redirect('read_all')

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Read All Objects{%endblock%}
+{% block body %}
+<table border="1px solid black">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    {% for obj in data %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td><a href="{% url 'read' obj.id %}">{{ obj.title }}</a></td>
+        <td>{{ obj.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<hr />
+<a href="{% url 'create' %}">Create</a>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Read Specfic Objects{%endblock%}
+{% block body %}
+<p>{{data.id}} -> {{data.title}} -> {{data.description}}</p>
+<hr />
+<a href="{%url 'update' data.id %}">Update</a> <a href="{%url 'delete' data.id %}">delete</a> <br />
+<a href="{%url 'read_all' %}">Go Back to Home</a>
+
+{% endblock %}

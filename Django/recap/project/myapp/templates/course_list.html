@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Course list{% endblock %}
+
+{% block body %}
+<table border="1px solid black">
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Course Description</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for course in data %}
+    <tr>
+        <td>{{ course.id }}</td>
+        <td>{{ course.title }}</td>
+        <td>{{ course.description }}</td>
+        <td><a href="{% url 'update_view' course.id %}">Update</a></td>
+        <td><a href="{% url 'delete_view' course.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<a href="{% url 'create_view' %}">Create New Course</a>
+{% endblock %}

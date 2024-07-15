@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Create Course{% endblock %}
+
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Course Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Course Description:</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+{% endblock %}
