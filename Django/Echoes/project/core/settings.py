@@ -121,9 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+# Desktop/Disk/SIT - June24/Django/Echoes/project/media/
 #Media Routes Config
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
