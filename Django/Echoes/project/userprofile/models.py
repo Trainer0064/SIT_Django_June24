@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 # Create your models here.
-
 class UserProfileModel(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, related_name="UserProfileModel_user",null=True)
     profile_picture = models.ImageField(upload_to="profile_pictures/", null=True, blank=True)

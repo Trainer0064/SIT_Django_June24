@@ -5,7 +5,7 @@ from .models import PostModel,CommentModel
 def create_post_view(request):
     if request.method == 'POST':
         PostModel.objects.create(user=request.user, post=request.FILES['post'],caption=request.POST.get('caption'))
-        return redirect('profile_view')
+        return redirect('profile_view',request.user.username)
     return render(request, 'create_post.html')
 
 def view_post(request,id):
@@ -48,4 +48,4 @@ def update_post_view(request,id):
 
 def delete_post_view(request,id):
     PostModel.objects.get(id=id).delete()
-    return redirect('profile_view')
+    return redirect('profile_view', request.user.username)

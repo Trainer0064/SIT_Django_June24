@@ -2,6 +2,15 @@
 {% block title %}Sign-up Page{% endblock %}
 
 {% block body %}
+<div class="container text-center mt-3" style="width: 30%;">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
 <div class="container">
     <div class="signup-container text-center">
         <div class="signup-logo">
