@@ -3,6 +3,8 @@ from .views import TaskModelListAPIView,TaskModelCreateAPIView,TaskModelGetAPIVi
 from .views import TaskModelGetUpdateAPIView,TaskModelListCreateAPIView,TaskModelGetPutDeleteAPIView
 from .views import TodoModelListCreateAPIView,TodoModelGetPutDeleteAPIView
 
+from .views import CustomizedTaskModelCreateAPIView,CustomizedTaskModelRUDAPIView,TodoModelListAPIView
+
 urlpatterns = [
     path('task-list-api/',TaskModelListAPIView.as_view(),name="TaskModelListAPIView"),
     path('task-create-api/',TaskModelCreateAPIView.as_view(),name="TaskModelCreateAPIView"),
@@ -15,4 +17,12 @@ urlpatterns = [
 
     path('todo-list-create-api/',TodoModelListCreateAPIView.as_view(),name="TodoModelListCreateAPIView"),
     path('todo-rud-api/<pk>/',TodoModelGetPutDeleteAPIView.as_view(),name="TodoModelGetPutDeleteAPIView"),
+    
+    #URLs for Customized CBVs
+    path('c-task-create-api/',CustomizedTaskModelCreateAPIView.as_view(),name="CustomizedTaskModelCreateAPIView"),
+    path('c-task-rud-api/<id>/',CustomizedTaskModelRUDAPIView.as_view(),name="CustomizedTaskModelRUDAPIView"),
+
+    path('c-todo-list-api/',TodoModelListAPIView.as_view(),name="TodoModelListAPIView"),
+    
+
 ]
