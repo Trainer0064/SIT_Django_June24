@@ -4,6 +4,7 @@ from .views import TaskModelGetUpdateAPIView,TaskModelListCreateAPIView,TaskMode
 from .views import TodoModelListCreateAPIView,TodoModelGetPutDeleteAPIView
 
 from .views import CustomizedTaskModelCreateAPIView,CustomizedTaskModelRUDAPIView,TodoModelListAPIView
+# from .views import login_view,test_length
 
 urlpatterns = [
     path('task-list-api/',TaskModelListAPIView.as_view(),name="TaskModelListAPIView"),
@@ -23,6 +24,7 @@ urlpatterns = [
     path('c-task-rud-api/<id>/',CustomizedTaskModelRUDAPIView.as_view(),name="CustomizedTaskModelRUDAPIView"),
 
     path('c-todo-list-api/',TodoModelListAPIView.as_view(),name="TodoModelListAPIView"),
-    
+    # path('login-api/',login_view,name= 'login_view'),
+    # path('test-pswd/<password>/',test_length,name= 'test_length'),
 
 ]

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #Third party Apps
     'rest_framework',
+    'django_filters',
 
     #Custom Apps
     'apis',
@@ -75,6 +76,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    # "DEFAULT_PAGINATION_CLASSES":
+    # "PAGE_SIZE":2
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

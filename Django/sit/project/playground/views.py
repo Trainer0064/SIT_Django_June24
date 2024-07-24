@@ -5,6 +5,10 @@ from .student_data import student_detail
 from .models import DepartmentModel,StudentModel,EducationModel
 # Create your views here.
 
+#For the Example DRF
+# from rest_framework import generics,serializers
+# from django_filters.rest_framework import DjangoFilterBackend
+
 def first_api(request):
     return HttpResponse("<h1>Hello, This is our first api using Django Framework</h1>")
 
@@ -90,7 +94,6 @@ def create_view(request):
 def update_view(request,id):
     data = DepartmentModel.objects.get(id=id)
     if request.method == 'POST':
-        print(request.POST['title'])
         data.title = request.POST.get('title')
         data.description = request.POST.get('description')
         data.save()
@@ -101,3 +104,15 @@ def update_view(request,id):
 def delete_view(request,id):
     DepartmentModel.objects.get(id=id).delete()
     return redirect('read_all')
+
+#For the Example DRF
+# class StudentModelSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = StudentModel
+#         fields = "__all__"
+
+# class StudentModelListAPIView(generics.ListAPIView):
+#     queryset = StudentModel.objects.all()
+#     serializer_class = StudentModelSerializer
+#     filter_backends = (DjangoFilterBackend,)
+#     filterset_fields = ('dept',)

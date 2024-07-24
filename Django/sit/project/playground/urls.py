@@ -3,6 +3,8 @@ from .views import first_api,json_api,dynamic_api,student_api,test_html,portfoli
 
 from .views import read_all_view,read_view,create_view,update_view,delete_view
 
+# from .views import StudentModelListAPIView
+
 urlpatterns = [
     path('first-api/',first_api,name='first-api'),
     path('json-api/',json_api,name='json-api'),
@@ -23,5 +25,7 @@ urlpatterns = [
     path('create/',create_view,name="create"),
     path('update/<id>/',update_view, name="update"),
     path('delete/<id>/',delete_view, name="delete"),
+
+    # path('list-api/',StudentModelListAPIView.as_view()),
 
 ]
